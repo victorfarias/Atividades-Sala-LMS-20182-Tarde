@@ -1,0 +1,24 @@
+h1{
+    color:blue;
+}
+
+#primeiro-titulo, .titulo-4{
+    color: red;
+}
+
+
+.titulo-rosa{
+    color: pink;
+}
+
+.fonte-grande{
+    font-size: 60px;
+}
+
+section .cor-verde{
+    color: green;
+}
+
+.classe-1 #meu-id h2{
+    color: yellow;
+}
