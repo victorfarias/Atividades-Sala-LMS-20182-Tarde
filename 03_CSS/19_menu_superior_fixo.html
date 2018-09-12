@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .navegador-superior-fixo{
+            background-color: chocolate;
+            position: fixed;
+            width: 100%;
+            font-size: 15px;
+            padding: 5px;
+            padding-left: 10px;
+            z-index: 1000;
+        }
+        .container{
+            position: relative;
+            top: 40px;
+            height: 2000px;
+            z-index: -1000;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="navegador-superior-fixo">
+        <h2>Meu blog muito massa</h2>
+    </header>
+    <div class="container">
+        Conteúdo
+    </div>
+</body>
+
+</html>

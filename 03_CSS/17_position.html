@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+        }
+        /* Tira borda e padding de todos elementos */
+        .container{
+            width: 500px;
+            height: 500px;
+            border: 1px #000000 solid;
+            margin: auto;
+            position: relative;
+        }
+        .tamanho200{
+            width: 200px;
+            height: 200px;
+        }
+        .div1{
+            background-color: blue;
+            position: static;
+        }
+        .div2{
+            background-color: green;
+        }
+
+        .div3{
+            background-color: blue;
+            /* margin-top: 50px; */
+            position: relative;
+            top: 100px;
+            left:100px;
+        }
+        .div4{
+            background-color: green;
+        }
+        .div5{
+            background-color: blue;
+        }
+        .div6{
+            background-color: green;
+            position: absolute;
+            /* OBS1: Perde o lugar dela */
+            /* OBS2: Se der position:absolute e não der */
+            /* nem top, nem left, nem right, nem bottom */
+            /* ela fica no lugar dela */
+        }
+        .div7{
+            background-color: blue;
+            position: absolute;
+            right: 10px;
+            bottom: 50px;
+            /* OBS3: Se usar position:absolute */
+            /* Dar position:relative para ancestral que se deseja relacionar o posicionamento */
+        }
+        .div8{
+            background-color: green;
+        }
+        .div9{
+            background-color: blue;
+            position: fixed;
+            bottom: 50%;
+            right: 100px;
+        }
+        .div10{
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="div1 tamanho200">div1</div>
+        <div class="div2 tamanho200">div2</div>
+    </div>
+    <div class="container">
+        <div class="div3 tamanho200">div3</div>
+        <div class="div4 tamanho200">div4</div>
+    </div>
+    <div class="container">
+        <div class="div5 tamanho200">div5</div>
+        <div class="div6 tamanho200">div6</div>
+    </div>
+    <div class="container">
+        <div class="div7 tamanho200">div7</div>
+        <div class="div8 tamanho200">div8</div>
+    </div>
+    <div class="container">
+        <div class="div9 tamanho200">div9</div>
+        <div class="div10 tamanho200">div10</div>
+    </div>
+</body>
+</html>
