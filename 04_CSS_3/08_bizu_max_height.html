@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .animada{
+            border: 10px solid black;            
+            overflow: hidden;
+            max-height: 0;
+            transition: max-height 600ms;
+            /* A transição não vai funcionar com height usando porcentagem */
+            /* Usa-se o max-height com altura sobrando */
+        }
+        .animada:hover{
+            max-height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="animada">Algum texto legal</div>
+</body>
+</html>

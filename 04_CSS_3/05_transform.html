@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            color: white;
+        }
+        .tamanho200{
+            height: 200px;
+            width: 200px;
+            background: blue;
+            margin: 50px;
+        }
+        .transform1{
+            transform: translate(50px,100px);
+            position: relative;
+            z-index: 100;
+        }
+        .transform2{
+            transform: rotate(20deg);
+            position: relative;
+            z-index: 1;
+        }
+        .transform2:hover{
+            transform: rotate(-20deg);
+        }
+        .transform3{
+            transform: scale(1.2,1.2);
+        }
+        .transform4{
+            transform: skew(10deg, 20deg);
+        }
+        .teste{
+            color: black;
+            transform: rotate(20deg);
+        }
+        .transform5{
+            transform: rotateX(180deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="tamanho200 transform1">Transform 1</div>
+    <div class="tamanho200 transform2">Transform 2</div>
+    <div class="tamanho200 transform3">Transform 3</div>
+    <div class="tamanho200 transform4">Trasnform 4</div>
+    <div class="tamanho200 transform5">Transform 5</div>
+    <span class="teste">Teste - Não funfa com elemento inline</span>
+</body>
+</html>
