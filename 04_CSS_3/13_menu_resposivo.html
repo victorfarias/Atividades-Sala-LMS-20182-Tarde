@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .cabecalho {
+            background-color: rgb(200, 200, 200);
+            padding: 10px;
+        }
+
+        .navegador-responsivo {
+            background: rgb(150, 150, 150);
+        }
+
+        .navegador-responsivo>ul {
+            list-style-type: none;
+        }
+
+        .navegador-responsivo>ul>li>a {
+            text-decoration: none;
+            display: block;
+            text-align: center;
+            color: white;
+            padding: 10px;
+        }
+
+        .navegador-responsivo>ul>li>a:hover {
+            background: rgb(210, 210, 210);
+        }
+
+        .conteudo {
+            padding: 20px;
+        }
+
+        @media screen and (min-width:478px) {
+            .navegador-responsivo {
+                float: left;
+                width: 25%;
+                height: calc(100vh - 57px);
+                /* Altura do viewport menos tamanho do header */
+                background: linear-gradient(black, white);
+            }
+
+            .conteudo {
+                float: left;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <Header class="cabecalho">
+        <h1>Meu site só massa</h1>
+    </Header>
+    <div class="container">
+        <nav class="navegador-responsivo">
+            <ul>
+                <li><a href="">HTML</a></li>
+                <li><a href="">CSS</a></li>
+                <li><a href="">JS</a></li>
+            </ul>
+        </nav>
+        <div class="conteudo">
+            <h2>Conteúdo do site</h2>
+        </div>
+    </div>
+</body>
+
+</html>
