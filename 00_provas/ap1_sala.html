@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .conteudo {
+            height: 2000px;
+        }
+
+        .navegador-responsivo {
+            background: rgb(200, 200, 200);
+            overflow: hidden;
+        }
+
+        .navegador-responsivo ul {
+            list-style-type: none;
+        }
+
+        .navegador-responsivo ul li a {
+            display: block;
+            text-decoration: none;
+            color: black;
+            padding: 8px;
+        }
+
+        .navegador-responsivo ul li a:hover {
+            background: rgb(150, 150, 150);
+        }
+
+        @media screen and (max-width:477px) {
+            .navegador-responsivo ul li a {
+                float: left;
+            }
+        }
+
+        @media screen and (min-width:478px) {
+            .navegador-responsivo {
+                position: fixed;
+                width: 25%;
+                height: 100%;
+            }
+
+            .conteudo {
+                margin-left: 25%;
+            }
+        }
+
+        .item-accordeon .titulo {
+            padding: 10px;
+            background: rgb(180, 180, 180);
+        }
+
+        .item-accordeon .corpo {
+            height: 0px;
+            overflow: hidden;
+            transition: height 500ms;
+        }
+        .item-accordeon:hover .corpo{
+            height: 350px;
+        }
+
+        .item-accordeon .corpo .imagem {
+            float: left;
+            width: 50%;
+            height: 100%;
+            position: relative;
+        }
+
+        .item-accordeon .corpo .imagem img {
+            height: 150px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .item-accordeon .corpo .texto {
+            float: left;
+            width: 50%;
+            height: 100%;
+            text-align: center;
+        }
+    </style>
+
+</head>
+
+<body>
+    <nav class="navegador-responsivo">
+        <ul>
+            <li><a href="">HTML</a></li>
+            <li><a href="">CSS</a></li>
+            <li><a href="">JS</a></li>
+        </ul>
+    </nav>
+    <div class="conteudo">
+        <div class="item-accordeon">
+            <div class="titulo">Assunto 1</div>
+            <div class="corpo">
+                <div class="imagem">
+                    <img src="./img.jpg" alt="">
+                </div>
+                <div class="texto">
+                    Textoood asjdksj bhfsdjkhb skdjhfb sdkj fhskdjbh sjkdbfh ksjdfh bksdjbh sdkjbh jk
+                </div>
+            </div>
+        </div>
+        <div class="item-accordeon">
+            <div class="titulo">Assunto 1</div>
+            <div class="corpo">
+                <div class="imagem">
+                    <img src="./img.jpg" alt="">
+                </div>
+                <div class="texto">
+                    Textoood asjdksj bhfsdjkhb skdjhfb sdkj fhskdjbh sjkdbfh ksjdfh bksdjbh sdkjbh jk
+                </div>
+            </div>
+        </div>
+        <div class="item-accordeon">
+            <div class="titulo">Assunto 1</div>
+            <div class="corpo">
+                <div class="imagem">
+                    <img src="./img.jpg" alt="">
+                </div>
+                <div class="texto">
+                    Textoood asjdksj bhfsdjkhb skdjhfb sdkj fhskdjbh sjkdbfh ksjdfh bksdjbh sdkjbh jk
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

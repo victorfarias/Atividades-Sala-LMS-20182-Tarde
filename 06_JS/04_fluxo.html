@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let a=4;
+        let b=5;
+        if(a==4 && b==5){
+            console.log("Entrou aqui");
+        }
+        if(a==4 && !b==5){
+            console.log("Entrou aqui1");
+        }else if(b==5){
+            console.log("Entrou aqui2");            
+        }else{
+            console.log("Entrou aqui3");
+        }
+
+        let c;
+        if(a==4){
+            c=6;
+        }else{
+            c=5;
+        }
+
+        c = (a==4) ? 6 : 5;
+        console.log(c);
+
+        console.log("While");
+        let i=0;
+        while(i<10){
+            console.log(i);
+            i++;
+        }
+
+        console.log("Do while");
+        i=0;
+        do{
+            console.log(i);
+            i++;
+        }while(i<10);
+
+        console.log("for");
+        for(let j=0; j<10; j++){
+            console.log(j);
+        }
+
+        console.log("for in");
+        let l = [2,3,4,5,6,7];
+        for(let k in l){
+            console.log(k);
+        }
+
+        console.log("for of")
+        for(let e of l){
+            console.log(e);
+        }
+
+
+    </script>    
+</body>
+</html>

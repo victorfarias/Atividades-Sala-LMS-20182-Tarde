@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .container{
+            display: flex;
+            flex-wrap: wrap;
+            /* align-items: flex-start; */
+        }
+        .cabecalho{
+            background: tomato;
+            padding: 20px;
+            font-size: 30px;
+            flex: 0 0 100%;
+        }
+        .navegador{
+            background: deepskyblue;
+            flex: 0 0 25%;
+        }
+        .navegador ul{
+            list-style-type: none;
+        }
+        .conteudo{
+            background: gold;
+            flex: 0 0 75%;
+        }
+        .rodape{
+            background-color: aquamarine;
+            padding: 10px;
+            flex: 0 0 100%;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="cabecalho">Meu site</header>
+        <nav class="navegador">
+            <ul>
+                <li><a href="">HTML</a></li>
+                <li><a href="">CSS</a></li>
+                <li><a href="">JS</a></li>
+                <li><a href="">JS</a></li>
+                <li><a href="">JS</a></li>
+                <li><a href="">JS</a></li>
+                <li><a href="">JS</a></li>
+                <li><a href="">JS</a></li>
+            </ul>
+        </nav>
+        <div class="conteudo">
+            <h2>Meu conteúdo</h2>
+        </div>
+        <footer class="rodape">Direitos reservados para UFC Quixadá</footer>
+    </div>
+</body>
+</html>

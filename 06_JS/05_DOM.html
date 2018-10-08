@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="meu-id"></div>
+    <div class="minha-div"></div>
+    <div class="minha-div">
+        <span class="meu-span"></span>
+    </div>
+    <span class="meu-span"></span>
+    <script>
+        console.log(document);
+        let div_meu_id = document.getElementById("meu-id");
+        console.table(div_meu_id);
+        let divs = document.getElementsByTagName("div");
+        console.log(divs);
+        console.log(divs[0]);
+
+        let minhas_divs = document.getElementsByClassName("minha-div");
+        console.log(minhas_divs);
+
+        let minhas_divs1 = document.querySelectorAll(".minha-div");
+        console.log(minhas_divs1);
+
+        let meu_span = document.querySelectorAll(".minha-div .meu-span");
+        console.log(meu_span);
+
+        let meu_span1 = document.querySelector(".minha-div .meu-span");
+        console.log(meu_span1);
+
+    </script>
+</body>
+</html>

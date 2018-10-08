@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .minha-classe{
+            width: 200px;
+            height: 200px;
+            background: black;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="minha-div"></div>
+    <img class="minha-img" src="" alt="">
+    <div></div>
+    <script>
+        document.write("Alguma coisa");
+        let div = document.querySelector(".minha-div");
+        div.innerHTML = '<h1 class="minha-class">Texto</h1>';
+        
+        let img = document.querySelector(".minha-img");
+        console.log(img);
+        img.src = "./img/pantera.png";
+
+        img.style.width = "200px";
+        img.style.display = "block";
+        img.style.border = "10px solid black";
+        img.style.transform = "rotate(30deg)";
+
+        let div1 = document.querySelector("div");
+        // console.log(div1);
+        div1.classList.add("minha-classe");
+        div1.classList.remove("minha-classe");
+        if(div1.classList.contains("minha-classe")==false){
+            div1.classList.add("minha-classe");
+        }
+
+        let divs = document.querySelectorAll("div");
+        for(d of divs){
+            d.classList.toggle("minha-classe");
+        }
+        for(d of divs){
+            d.classList.toggle("minha-classe");
+        }
+
+    </script>
+</body>
+</html>

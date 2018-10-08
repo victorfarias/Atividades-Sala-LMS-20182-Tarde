@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .minha-div{
+            width: 200px;
+            height: 200px;
+            background: black;
+        }
+        .background-azul{
+            background: blue;
+        }
+    </style>
+</head>
+<body>
+    <button class="meu-botao">Clique-me</button>
+    <div class="minha-div"></div>
+    <script>
+        let botao = document.querySelector(".meu-botao");
+        let minha_div = document.querySelector(".minha-div");
+
+        botao.addEventListener("click", function(){
+            minha_div.classList.toggle("background-azul");
+        });
+
+        function trocar_back(){
+            minha_div.classList.toggle("background-azul");
+        }
+        minha_div.addEventListener("mouseover", trocar_back);
+        minha_div.addEventListener("mouseout", trocar_back);
+        // Detalhe: se fizer assim: botao.addEventListener("mouseover", trocar_back());
+        // Está passando o retorno da função e não a função
+
+
+
+
+    </script>
+</body>
+</html>

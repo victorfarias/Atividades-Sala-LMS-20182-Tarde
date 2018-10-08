@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .navegador-responsivo{
+            background: rgb(200,200,200);
+            overflow: hidden;
+            float: left;
+            height: 100vh;
+            width: 25%;
+        }
+        .navegador-responsivo ul {
+            list-style-type: none;
+        }
+        .navegador-responsivo ul li a{
+            display: block;
+            /* float: left; */
+            padding: 10px;
+            text-decoration: none;
+            color: black;
+        }
+        .navegador-responsivo ul li a:hover{
+            background: rgb(100, 100, 100);
+        }
+        .content{
+            float: left;
+            width: 75%;
+            height: 2000px;
+        }
+        .accordeon .accordeon-titulo{
+            background-color: rgb(150,150,150);
+            padding: 10px;
+            font-size: 18px;
+        }
+        .accordeon .accordeon-corpo{
+            background-color: rgb(240,240,240);
+            font-size: 20px;
+            max-height: 0px;
+            overflow: hidden;
+            transition: 1s;
+        }
+
+        .accordeon:hover .accordeon-corpo{
+            max-height: 350px;
+        }
+
+        @media screen and (max-width: 478px){
+            .navegador-responsivo{
+                float: none;
+                width: 100%;
+                height: auto;
+            }
+            .navegador-responsivo ul li a{
+                float: left;
+            }
+            .content{
+                float: none;
+                width: auto;
+            }
+        }
+
+        @media screen and (min-width: 478px){
+            .navegador-responsivo{
+                position: fixed;
+                left: 0;
+            }
+            .content{
+                margin-left: 25%;
+            }
+        }
+
+        .esquerdo{
+            width: 50%;
+            float: left;
+            height: 350px;
+            background: rgb(230,230,230);
+            position: relative;
+        }
+        .esquerdo img{
+            height: 150px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%)
+;        }
+        .direito{
+            width: 50%;
+            float: left;
+            height: 350px;
+            text-align: center;
+        }
+
+
+    </style>
+</head>
+<body>
+    <nav class="navegador-responsivo">
+        <ul>
+            <li><a href="">HTML</a></li>
+            <li><a href="">CSS</a></li>
+            <li><a href="">JS</a></li>
+        </ul>
+    </nav>
+    <div class="content">
+        <div class="accordeon">
+            <div class="accordeon-titulo">
+                Assunto 1
+            </div>
+            <div class="accordeon-corpo">
+                <div class="esquerdo">
+                    <img src="./img.jpg" alt="">
+                </div>
+                <div class="direito">
+                    Texto sobre assunto 1 Texto sobre assunto 1 Texto sobre assunto 1 Texto sobre assunto 1 Texto sobre assunto 1 Texto sobre assunto 1 Texto sobre assunto 1 Texto sobre assunto 1 Texto sobre assunto 1 Texto sobre assunto 1                     
+                </div>
+            </div>
+        </div>
+        <div class="accordeon">
+            <div class="accordeon-titulo">
+                Assunto 2
+            </div>
+            <div class="accordeon-corpo">
+                <div class="esquerdo">
+                    <img src="./img.jpg" alt="">
+                </div>
+                <div class="direito">
+                    Texto sobre assunto 2 Texto sobre assunto 1 Texto sobre assunto 1 Texto sobre assunto 1 Texto sobre assunto 1 Texto sobre assunto 1 Texto sobre assunto 1 Texto sobre assunto 1 Texto sobre assunto 1 Texto sobre assunto 1                     
+                </div>
+            </div>
+        </div>
+        <div class="accordeon">
+            <div class="accordeon-titulo">
+                Assunto 3
+            </div>
+            <div class="accordeon-corpo">
+                <div class="esquerdo">
+                    <img src="./img.jpg" alt="">
+                </div>
+                <div class="direito">
+                    Texto sobre assunto 3 Texto sobre assunto 3 Texto sobre assunto 3 Texto sobre assunto 3 Texto sobre assunto 3 Texto sobre assunto 3 Texto sobre assunto 3 Texto sobre assunto 3 Texto sobre assunto 3 Texto sobre assunto 3                     
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

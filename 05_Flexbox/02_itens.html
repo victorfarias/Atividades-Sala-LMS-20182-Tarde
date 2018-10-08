@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .container{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .tamanho200{
+            width: 200px;
+            height: 200px;
+            background: tomato;
+            font-size: 40px;
+        }
+        .item2{
+            order:10;
+        }
+        .item7{
+            order: -1;
+        }
+
+        .grow{
+            display: flex;
+        }
+        .grow *{
+            height: 200px;
+            background: blue;
+            color: white;
+            font-size: 40px;
+            border: 20px solid rgb(200, 200, 200);
+        }
+        .grow1{
+            flex-basis: 200px;
+            flex-grow: 1;
+        }
+        .grow2{
+            flex-grow: 2;
+        }
+        .grow3{
+            flex-grow: 3;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="tamanho200">1</div>
+        <div class="tamanho200 item2">2</div>
+        <div class="tamanho200">3</div>
+        <div class="tamanho200">4</div>
+        <div class="tamanho200">5</div>
+        <div class="tamanho200">6</div>
+        <div class="tamanho200 item7">7</div>
+        <div class="tamanho200">8</div>
+        <div class="tamanho200">9</div>
+        <div class="tamanho200">10</div>
+    </div>
+
+
+    <div class="grow">
+        <div class="grow1">Grow 1</div>
+        <div class="grow2">Grow 2</div>
+        <div class="grow3">Grow 3</div>
+    </div>
+</body>
+</html>
