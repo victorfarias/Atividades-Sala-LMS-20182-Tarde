@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .to-do{
+            text-align: center;
+        }
+        .to-do .card{
+            border-radius: 10px;
+            width: 300px;
+            /* height: 200px;  */
+            margin: 20px;
+            display: inline-block;
+        }
+
+        .to-do .card .title{
+            background: rgb(2, 122, 161);
+            padding: 10px;
+            color: white;
+            font-size: 20px;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .to-do .card .content{
+            background: deepskyblue;
+            border-radius: 0 0 10px 10px;  
+            height: 150px; 
+        }
+    </style>
+</head>
+
+<body>
+    <form action="">
+        Titulo: <input class="title-input" type="text"> <br>
+        Conteudo: <input class="content-input" type="text"> <br>
+        <button class="add-button">Me clique</button>
+    </form>
+    <div class="to-do">
+        <div class="card">
+            <div class="title">
+                Fazer compras
+            </div>
+            <div class="content">leite, ovo</div>
+        </div>
+        <div class="card">
+            <div class="title">
+                Fazer compras
+            </div>
+            <div class="content">leite, ovo</div>
+        </div>
+        <div class="card">
+            <div class="title">
+                Fazer compras
+            </div>
+            <div class="content">leite, ovo</div>
+        </div>
+        <div class="card">
+            <div class="title">
+                Fazer compras
+            </div>
+            <div class="content">leite, ovo</div>
+        </div>
+        <div class="card">
+            <div class="title">
+                Fazer compras
+            </div>
+            <div class="content">leite, ovo</div>
+        </div>
+    </div>
+    <script>
+        let title_input = document.querySelector(".title-input"); 
+        let content_input = document.querySelector(".content-input"); 
+        let add_button = document.querySelector(".add-button");
+        let to_do = document.querySelector(".to-do");
+
+        function addCard(title_input, content_input){
+            let card = document.createElement("div");
+            card.classList.add("card");
+
+            let title = document.createElement("div");
+            title.classList.add("title");
+            let text_title = document.createTextNode(title_input);
+            title.appendChild(text_title);
+
+            let content = document.createElement("div");
+            content.classList.add("content");
+            let text_content = document.createTextNode(content_input);
+            content.appendChild(text_content);
+
+            card.appendChild(title);
+            card.appendChild(content);
+
+            to_do.appendChild(card);
+        }
+
+        add_button.addEventListener("click",function(){
+            event.preventDefault(); 
+            // Botão dentro de form dispara envio do formulário
+            // event.preventDefault() previne que isso aconteça
+            addCard(title_input.value, content_input.value);
+        })
+    </script>
+</body>
+
+</html>

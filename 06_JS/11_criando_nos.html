@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .div1 .para {
+            background: gold;
+            animation: teste 800ms;
+        }
+
+        @keyframes teste {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <button class="add">
+        Adiciona parágrafo
+    </button>
+
+    <div class="div1">
+        <p class="para">Um parágrafo</p>
+    </div>
+    <script>
+        let div1 = document.querySelector(".div1");
+        let botao_add = document.querySelector(".add");
+
+        function addPara() {
+            let p = document.createElement("p");
+            let text = document.createTextNode("Parágrafo dinamicamente criado");
+
+            p.classList.add("para");
+
+            p.appendChild(text);
+            div1.appendChild(p);
+        }
+
+        botao_add.addEventListener("click", addPara);
+    </script>
+</body>
+
+</html>

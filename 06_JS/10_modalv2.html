@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .modal-overlay{
+            width: 100vw;
+            height: 100vh;
+            display: none;
+            background: rgba(0, 0, 0, 0.8);
+            position: fixed;
+            top: 0;  
+            animation: aparecer 600ms;          
+        }
+
+        .modal-overlay .modal{
+            width: 50%;
+            position: absolute;
+            left: 25%;
+            top: 20%;
+            animation: abrir 600ms;
+        }
+        .modal-overlay .modal .modal-header{
+            padding: 20px;
+            background: rgb(128, 24, 6);
+            color: white;
+            border-radius: 20px 20px 0px 0px;
+            overflow: hidden;
+        }
+        .modal-overlay .modal .modal-header h1{
+            float: left;
+        }
+
+        .modal-overlay .modal .modal-body{
+            background: tomato;
+            padding: 20px;
+            font-size: 30px;
+        }
+
+        .modal-overlay .modal .modal-header .close{
+            float: right;   
+            font-size: 30px;
+            cursor: pointer;
+            user-select: none; 
+        }
+
+        @keyframes aparecer{
+            from{
+                opacity: 0;
+            }to{
+                opacity: 1;
+            }
+        }
+        @keyframes abrir{
+            from{
+                transform: scale(1, 0);
+                top: 0%;
+            }to{
+                transform: scale(1, 1);
+                top: 20%;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <button class="botao-modal">Me clique</button>
+    <div class="modal-overlay">
+        <div class="modal">
+            <div class="modal-header">
+                <h1>Meu título</h1>
+                <span class="close"> X </span>
+            </div>
+            <div class="modal-body">
+                Alguma coisa legal
+            </div>
+        </div>
+    </div>
+    <script>
+        let botao_modal = document.querySelector(".botao-modal");
+        let modal_overlay = document.querySelector(".modal-overlay");
+        let close = document.querySelector(".modal-overlay .modal .modal-header .close");
+        
+        botao_modal.addEventListener("click", function(){
+            modal_overlay.style.display = "block";
+        });
+
+        close.addEventListener("click", function(){
+            modal_overlay.style.display = "none";
+        }); 
+
+        window.addEventListener("click", function(){
+            if(event.target==modal_overlay){
+                modal_overlay.style.display = "none";                
+            }
+        });
+
+    </script>
+</body>
+</html>
