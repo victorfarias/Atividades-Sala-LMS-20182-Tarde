@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Objeto JS para String JSON
+        let victor = {
+            nome: "Victor",
+            sobrenome: "Farias",
+            idade: 23,
+            telefones: ["357764353","753743755"]
+        }
+        console.log(victor.nome);
+        console.log(victor.telefones);
+        console.log(victor.telefones[0]);
+        let victor_text = JSON.stringify(victor);
+        console.log(victor_text);
+
+        // JSON para objeto JS
+        let victor_json = '{"nome":"victor", "sobrenome":"Farias"}';
+        let victor_parsed = JSON.parse(victor_json);
+        console.log(victor_parsed.nome);
+        
+    </script>
+</body>
+</html>

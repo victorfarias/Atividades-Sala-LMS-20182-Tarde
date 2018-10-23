@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul class="lista-nomes">
+        <li>
+            Victor Farias
+        </li>
+        <li>
+            Luis Almeida
+        </li>
+    </ul>
+    <script>
+        let lista_nome = document.querySelector(".lista-nomes");
+        function addAmigo(nome, sobrenome){
+            let li = document.createElement("li");
+            let li_text = document.createTextNode(nome + " "+sobrenome);
+            li.appendChild(li_text);
+            lista_nome.appendChild(li);
+        }
+
+        let url = "http://rest.learncode.academy/api/victor/amigos";
+        let xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function(){
+            if(xhttp.readyState==4){
+                console.log("GET!")
+                let response = JSON.parse(xhttp.responseText);                
+                console.log(response);
+                for(let i=0; i<response.length; i++){
+                    addAmigo(response[i].nome, response[i].sobrenome);  
+                }
+            }
+        }
+        xhttp.open("GET", url, true);
+        xhttp.send();
+
+
+        let xhttp1 = new XMLHttpRequest();
+        xhttp1.onreadystatechange = function(){
+            if(xhttp1.readyState==4){
+                console.log("POST!");
+                console.log(xhttp1.responseText);
+            }
+        }
+        xhttp1.open("POST", url, true);
+        xhttp1.setRequestHeader("Content-type", "application/json");
+        xhttp1.send('{"nome":"victor","sobrenome":"farias"}');
+
+
+    </script>
+</body>
+</html>

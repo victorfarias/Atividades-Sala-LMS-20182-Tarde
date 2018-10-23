@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <input class="input" type="text"> <br>
+        <input class="radio" type="radio" name="tipo" value="casa" id="" checked> Casa <br>
+        <input class="radio" type="radio" name="tipo" value="trabalho" id=""> Trabalho <br>
+        <input class="radio" type="radio" name="tipo" value="faculdade" id=""> Faculdade <br>
+        <button class="submit">Submeter</button>
+    </form>
+    <ul class="todo-list">
+        <li>
+            Fazer compras - Casa
+        </li>
+        <li>
+            Fazer trabalho 2 parte 2 que já no site de LMS - Trabalho
+        </li>
+    </ul>
+
+    <script>
+        let todo_list = document.querySelector(".todo-list");
+        function addItemInterface(todo_text){
+            let li = document.createElement("li");
+            let li_text = document.createTextNode(todo_text);
+
+            li.appendChild(li_text);
+            todo_list.appendChild(li);
+        }
+
+        let url = "http://rest.learncode.academy/api/victor/todo";
+        function getItemsHTTP(){
+            let xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function(){
+                if(xhttp.readyState==4){
+                    console.log("GET");
+                    let parsed_body = JSON.parse(xhttp.responseText);
+                    console.log(parsed_body);
+                    todo_list.innerHTML = "";
+                    for(let i=0; i<parsed_body.length; i++){
+                        let type = parsed_body[i].type[0].toUpperCase() + 
+                                   parsed_body[i].type.substring(1,parsed_body[i].type.length);
+                        addItemInterface(parsed_body[i].text + " - " + type);
+                    }
+                }
+            }
+            xhttp.open("GET", url, true);
+            xhttp.send();
+        }
+        
+        function addItemHTTP(new_item, type){
+            let xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function(){
+                if(xhttp.readyState==4){
+                    console.log("POST")
+                    getItemsHTTP();
+                }
+            }
+            xhttp.open("POST", url, true);
+            xhttp.setRequestHeader("Content-type","application/json");
+            let item = {
+                text: new_item,
+                type: type
+            }
+            xhttp.send(JSON.stringify(item));
+        }
+        
+        let button = document.querySelector(".submit");
+        let input = document.querySelector(".input")
+        let radios = document.querySelectorAll(".radio")
+        button.addEventListener("click", function(event){
+            event.preventDefault();
+            console.log(radios[0]);
+            for(let i=0; i<radios.length; i++){
+                if(radios[i].checked==true){
+                    addItemHTTP(input.value, radios[i].value);
+                }
+            }            
+        });
+    </script>
+</body>
+</html>
