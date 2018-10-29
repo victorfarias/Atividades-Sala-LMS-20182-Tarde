@@ -15,10 +15,32 @@
             margin: auto;
             text-align: center;
         }
-        .gallery img{
+        .gallery .gallery-item{
             display: inline-block;
             margin: 20px;
             cursor: pointer;
+        }
+        .gallery .gallery-item .loading{
+            box-sizing: border-box;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 15px solid rgba(0,0,0,0.0);
+            border-right: 15px solid green;
+            animation-name: rodar;
+            animation-duration: 1s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+        }
+        @keyframes rodar{
+            from{
+                transform: rotate(0deg);
+            }to{
+                transform: rotate(360deg);
+            }
+        }
+        .gallery img{            
+            display: none;
         }
         .modal{
             background: rgba(0,0,0,0.6);
@@ -42,14 +64,10 @@
         <img src="" alt="">
     </div>
     <div class="gallery">
-        <!-- <img src="https://via.placeholder.com/150/92c952" alt="">
-        <img src="https://via.placeholder.com/150/92c952" alt="">
-        <img src="https://via.placeholder.com/150/92c952" alt="">
-        <img src="https://via.placeholder.com/150/92c952" alt="">
-        <img src="https://via.placeholder.com/150/92c952" alt="">
-        <img src="https://via.placeholder.com/150/92c952" alt="">
-        <img src="https://via.placeholder.com/150/92c952" alt="">
-        <img src="https://via.placeholder.com/150/92c952" alt=""> -->
+        <!-- <div class="gallery-item">
+            <img src="https://via.placeholder.com/150/24f355" alt="">
+            <div class="loading"></div>
+        </div> -->
     </div>
 
     <script>
@@ -61,7 +79,7 @@
             xhttp.onreadystatechange = function(){
                 if(xhttp.readyState==4){
                     data = JSON.parse(xhttp.responseText);
-                    for(let i=0; i< 21; i++){
+                    for(let i=0; i< 21; i++){                    
                         addImageGallery(data[i].thumbnailUrl, data[i].url);
                         currentImageIndex = 21;
                     }
@@ -84,16 +102,31 @@
         modal.addEventListener("click", closemodal);
 
         let gallery = document.querySelector(".gallery");
+
         function addImageGallery(urlThumbnail, imageUrl){
             let img = document.createElement("img");
             img.src = urlThumbnail;
+
+            let loading = document.createElement("div");
+            loading.classList.add("loading");     
+            
+            let gallery_item = document.createElement("div");
+            gallery_item.classList.add("gallery-item");
 
             img.addEventListener("click", function(){
                 console.log(imageUrl);
                 openModal(imageUrl);
             });
 
-            gallery.appendChild(img);
+            img.addEventListener("load", function(){
+                loading.style.display ="none";
+                img.style.display = "block";
+            })
+
+            gallery_item.appendChild(img);
+            gallery_item.appendChild(loading);
+
+            gallery.appendChild(gallery_item);
         }
 
         window.addEventListener("scroll", function(){
