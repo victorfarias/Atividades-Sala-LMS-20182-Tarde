@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .gallery{
+            text-align: center;
+        }
+        .card{
+            height: 200px;
+            width: 300px;
+            background: deepskyblue;
+            text-align: center;
+            display: inline-block;
+            margin: 20px;
+        }
+        .card .card-title{
+            background: rgb(134, 216, 243);
+            padding: 15px;
+            font-size: 20px;
+        }
+        .card .card-body{
+            font-size: 15px;
+            padding: 20px;
+        }
+        
+    </style>
+</head>
+
+<body>
+
+    <form action="">
+        <input class="titulo-input" type="text" placeholder="Título"> <br>
+        <input class="texto-input" type="text" placeholder="Texto"> <br>
+        <button class="submit">Inserir</button>
+    </form>
+
+    <div class="gallery">
+        <!-- <div class="card">
+            <div class="card-title">
+                Exemplo
+            </div>
+            <div class="card-body">
+                Texto
+            </div>
+        </div> -->
+    </div>
+
+
+    <script>
+        let url = "http://rest.learncode.academy/api/victor/notas";
+
+        let gallery = document.querySelector(".gallery");
+
+        function addItemInterface(titulo, texto){
+            let card_title = document.createElement("div");
+            let card_title_text = document.createTextNode(titulo);
+            card_title.classList.add("card-title");
+            
+            let card_body = document.createElement("div");
+            let card_body_text = document.createTextNode(texto);
+            card_body.classList.add("card-body");
+
+            let card = document.createElement("div");
+            card.classList.add("card");
+
+            card_title.appendChild(card_title_text);
+            card_body.appendChild(card_body_text);
+
+            card.appendChild(card_title);
+            card.appendChild(card_body);
+
+            gallery.appendChild(card);
+        }
+
+        function getItemsHTTP() {
+            let xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (xhttp.readyState == 4) {
+                    console.log("GET");
+                    let data = JSON.parse(xhttp.responseText);
+                    gallery.innerHTML = "";
+                    for(let i=0; i<data.length; i++){
+                        addItemInterface(data[i].title, data[i].text);
+                    }
+                }
+            }
+            xhttp.open("GET", url, true);
+            xhttp.send();
+        }
+        getItemsHTTP();
+
+        function postItemHTTP(titulo, texto) {
+            let xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (xhttp.readyState == 4) {
+                    console.log("POST");
+                    titulo_input.value = "";
+                    texto_input.value = "";
+                    getItemsHTTP();
+                }
+            }
+            xhttp.open("POST", url, true);
+            xhttp.setRequestHeader("Content-type", "application/json");
+            let item = {
+                title: titulo,
+                text: texto
+            }
+            xhttp.send(JSON.stringify(item));
+            
+        }
+
+        let titulo_input = document.querySelector(".titulo-input");
+        let texto_input = document.querySelector(".texto-input");
+        let submit_button = document.querySelector(".submit");
+
+        submit_button.addEventListener("click", function (event) {
+            event.preventDefault();
+            postItemHTTP(titulo_input.value, texto_input.value);
+        })
+
+
+        // Objeto JS
+        // let gato = {
+        //     nome: "Félix",
+        //     idade: 3,
+        //     vidas: 7,
+        //     brinquedos: ["bola de pelo", "arranhador", "sofa"],
+        //     posses: ["humano"]
+        // }
+        // console.log(gato.nome);
+        // console.log(gato.brinquedos);
+        // let gato_string = JSON.stringify(gato);
+        // console.log(gato_string);
+
+        // // String na notação JSON
+        // let gato_json = '{"nome":"Félix", "idade":3}';
+        // console.log(gato_json.nome);
+        // let gato_parsed = JSON.parse(gato_json);
+        // console.log(gato_parsed);
+        // console.log(gato_parsed.nome);
+    </script>
+</body>
+
+</html>
