@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .post{
+            border: 2px solid rgb(150,150,150);
+        }
+        .post .name{
+            font-size: 30px;
+            padding: 10px;
+            background: rgb(150,150,150);
+        }
+        .post .text{
+            padding: 30px;
+        }
+        .post .ver-comentarios{
+            padding: 10px;
+            border-top: 2px solid rgb(150,150,150);
+            border-bottom: 2px solid rgb(150,150,150);
+            text-decoration: underline;
+            color: blue;
+            cursor: pointer;
+        }
+        .post .comentarios .comentario{
+            background: deepskyblue;
+            padding: 20px;
+            border-radius: 20px;
+            margin: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="post">
+        <div class="name"> <b>Victor Farias</b> </div>
+        <div class="text">laudantium enim quasi est quidem magnam voluptate ipsam eos\ntempora quo necessitatibus\ndolor quam autem quasi\nreiciendis et nam sapiente accusantium</div>
+        <div class="ver-comentarios">
+            Ver_comentario
+        </div>
+        <div class="comentarios">
+            <!-- <div class="comentario">
+                    laudantium enim quasi est quidem magnam voluptate ipsam eos\ntempora quo necessitatibus\ndolor quam autem quasi\nreiciendis et nam sapiente accusantium
+            </div> -->
+        </div>
+    </div>
+    <script>
+        let ver_comentarios = document.querySelector(".ver-comentarios");
+        let comentarios = document.querySelector(".comentarios");
+        let show = false;
+
+        function addComentarioInterface(texto){
+            let div = document.createElement("div");
+            div.classList.add("comentario");
+
+            let text_node = document.createTextNode(texto);
+
+            div.appendChild(text_node);
+            comentarios.appendChild(div);
+        }
+        let url = 'https://jsonplaceholder.typicode.com/posts/1/comments';
+        function getComentarios(){
+            let xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function(){
+                if(xhttp.readyState == 4){
+                    let data = JSON.parse(xhttp.responseText);
+                    for(let i =0; i<data.length; i++){
+                        addComentarioInterface(data[i].body);
+                    }
+                    ver_comentarios.innerHTML = "Esconder comentário";
+                }
+            }
+            xhttp.open('GET', url, true);
+            xhttp.send();
+        }
+        ver_comentarios.addEventListener("click", function(){
+            if(show==false){
+                getComentarios();
+                show=true;
+            }else{
+                comentarios.innerHTML = "";
+                ver_comentarios.innerHTML = "Ver comentários";
+                show=false;
+            }
+            
+        })
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./js/jquery-3.1.1.min.js"></script>
+
+</head>
+
+<form action="">
+    <input class="name-input" type="text">
+    <button class="submit">Submeter</button>
+</form>
+
+<ul class="users">
+</ul>
+
+<body>
+    <script>
+        let url = 'http://rest.learncode.academy/api/victor/users';
+
+        function fillList() {
+            $.ajax({
+                type: 'GET',
+                url: url,
+                success: function (data) {
+                    $(".users").empty();
+                    for (let i = 0; i < data.length; i++) {
+                        let li = $("<li></li>").text(data[i].name);
+                        $(".users").append(li);
+                    }
+                }
+            })
+        }
+
+        $('.submit').click(function (event) {
+            event.preventDefault();
+            $.ajax({
+                type: 'POST',
+                url: url,
+                data: {
+                    name: $('.name-input').val()
+                },
+                success: function (data) {
+                    fillList();
+                    $('.name-input').val("");
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>

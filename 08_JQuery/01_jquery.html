@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./js/jquery-3.1.1.min.js"></script>
+</head>
+
+<body>
+    <button class="toggle-button">Clique-me</button>
+    <p id="para-id" class="para1">
+        Meu parágrafo
+    </p>
+    <p class="para1">
+        Meu outro parágrafo
+    </p>
+    <p id="id1">
+        Meu parágrafo
+    </p>
+    <p id="id2">
+        Meu parágrafo
+    </p>
+    <div class="add"></div>
+    <form action="">
+        <input id="input-text" type="text">
+    </form>
+    <script>
+        // $('.para1').hide();
+        // $('#para-id').show();
+        $('.para1').click(function(){
+            console.log("clique no parágrafo!");
+        });
+        $('#para-id').dblclick(function(){
+            console.log("clique duplo!");
+        });
+        $('.toggle-button').click(function(){
+            $('.para1').toggle(1000);
+            $('#id1').fadeToggle(1000);
+            $('#id2').slideToggle(1000);
+            console.log($('#input-text').val());
+            $('#input-text').val("");
+        });
+        console.log($('#id2').text());
+        $('#id1').html('<div>teste</div>');
+
+        $('#id2').text('<div>teste</div>');
+        $('#id2').append('<div>teste</div>');
+
+
+        let txt1 = "<div>minha div 1</div>"; // Não recomendo!
+        let txt2 = $('<div></div>').text('Minha div 2'); // Massa!
+        let txt3 = document.createElement("div"); // A gente sempre fez assim...
+        txt3.innerText = 'Minha div 3';
+
+        $('.add').append(txt1, txt2, txt3);
+
+        let new_element = $("<div></div>").text("append");
+        $('.add').append(new_element);
+        new_element = $('<div></div>').text('prepend');
+        $('.add').prepend(new_element);
+        new_element = $('<div></div>').text('before');        
+        $('.add').before(new_element);
+        new_element = $('<div></div>').text('after');        
+        $('.add').after(new_element);
+
+        $('#para_id').remove();
+        $('#para-id').empty();
+        // $('.add').empty();
+
+        $('.para1').addClass('minha-classe');
+        $('.para1').toggleClass('minha-classe');    
+        // $('.para1').removeClass('para1');
+
+        $('.para1').css({"background":"blue", "border":"5px solid black"});
+
+    </script>
+
+</body>
+
+</html>
